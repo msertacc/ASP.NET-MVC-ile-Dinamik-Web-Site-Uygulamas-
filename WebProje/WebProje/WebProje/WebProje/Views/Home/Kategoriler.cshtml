@@ -1,0 +1,23 @@
+﻿@using WebProje.Models.EntityFramework
+@model List<FILMLER>
+@{
+    ViewBag.Title = "Kategoriler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+@foreach(var veri in Model) {
+    <div class="card mb-3 bg-dark text-white ">
+        <img class="card-img-top" src="..." alt="">
+        ÇIKIŞ YILI : @veri.FILMYIL.Value.Date.Year
+        <div class="card-body">
+            <h5 class="card-title">@veri.FILMAD</h5>
+            <p class="card-text">@veri.FILMOZET</p>
+            <p class="card-text"><small class="text-muted">IMDB PUANI : @veri.FILMPUAN</small></p>
+        </div>
+    </div>
+}
+</div>
+<a href="/Film/Yeni" class="btn btn-primary">YENİ FİLM EKLE</a>
+
+

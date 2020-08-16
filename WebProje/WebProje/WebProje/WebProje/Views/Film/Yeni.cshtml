@@ -1,0 +1,35 @@
+﻿@model WebProje.Models.EntityFramework.KATEGORILER
+@{
+    ViewBag.Title = "Yeni";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Yeni</h2>
+
+<form method="post" class="form-group">
+    <div>
+        <label>KATEGORI ADI</label>
+        @Html.DropDownListFor(m => m.KATEGORIAD, (List<SelectListItem>)ViewBag.veri, new { @class = "form-control" })
+    </div>
+    <div>
+        <label>FİLM ADI</label>
+        <input type="text" class="form-control" name="FILMAD" />
+    </div>
+    <div>
+        <label>FİLM YILI</label>
+        <input type="date" class="form-control" name="FILMYIL" />
+    </div>
+    <div>
+        <label>FİLM PUAN</label>
+        <input type="text" class="form-control" name="FILMPUAN" />
+    </div>
+    <div>
+        <label>FİLM OZET</label>
+        <textarea class="form-control" name="FILMOZET">gir</textarea>
+    </div>
+    <div style="margin-top:20px">
+        <button class="btn btn-info">FİLM EKLE</button>
+    </div>
+
+
+</form>

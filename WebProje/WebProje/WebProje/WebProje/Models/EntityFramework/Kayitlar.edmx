@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="VeritabanıModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="FILMLER">
+          <Key>
+            <PropertyRef Name="FILMID" />
+          </Key>
+          <Property Name="FILMID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KATEGORIID" Type="int" />
+          <Property Name="FILMAD" Type="varchar" MaxLength="50" />
+          <Property Name="FILMYIL" Type="date" />
+          <Property Name="FILMPUAN" Type="tinyint" />
+          <Property Name="FILMOZET" Type="varchar" MaxLength="1000" />
+          <Property Name="FILMRESIM" Type="image" />
+        </EntityType>
+        <EntityType Name="KATEGORILER">
+          <Key>
+            <PropertyRef Name="KATEGORIID" />
+          </Key>
+          <Property Name="KATEGORIID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KATEGORIAD" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="KULLANICILAR">
+          <Key>
+            <PropertyRef Name="KULLANICIID" />
+          </Key>
+          <Property Name="KULLANICIID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KULLANICIAD" Type="varchar" MaxLength="50" />
+          <Property Name="KULLANICITIP" Type="bit" />
+          <Property Name="KULLANICIEMAIL" Type="varchar" MaxLength="50" />
+          <Property Name="KULLANICISIFRE" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="YORUMLAR">
+          <Key>
+            <PropertyRef Name="YORUMID" />
+          </Key>
+          <Property Name="YORUMID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KULLANICIID" Type="int" />
+          <Property Name="KULLANICIYORUM" Type="varchar" MaxLength="155" />
+        </EntityType>
+        <Association Name="FK_FILMLER_KATEGORILER">
+          <End Role="KATEGORILER" Type="Self.KATEGORILER" Multiplicity="0..1" />
+          <End Role="FILMLER" Type="Self.FILMLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KATEGORILER">
+              <PropertyRef Name="KATEGORIID" />
+            </Principal>
+            <Dependent Role="FILMLER">
+              <PropertyRef Name="KATEGORIID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YORUMLAR_KULLANICILAR">
+          <End Role="KULLANICILAR" Type="Self.KULLANICILAR" Multiplicity="0..1" />
+          <End Role="YORUMLAR" Type="Self.YORUMLAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KULLANICILAR">
+              <PropertyRef Name="KULLANICIID" />
+            </Principal>
+            <Dependent Role="YORUMLAR">
+              <PropertyRef Name="KULLANICIID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="VeritabanıModelStoreContainer">
+          <EntitySet Name="FILMLER" EntityType="Self.FILMLER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KATEGORILER" EntityType="Self.KATEGORILER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KULLANICILAR" EntityType="Self.KULLANICILAR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YORUMLAR" EntityType="Self.YORUMLAR" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_FILMLER_KATEGORILER" Association="Self.FK_FILMLER_KATEGORILER">
+            <End Role="KATEGORILER" EntitySet="KATEGORILER" />
+            <End Role="FILMLER" EntitySet="FILMLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YORUMLAR_KULLANICILAR" Association="Self.FK_YORUMLAR_KULLANICILAR">
+            <End Role="KULLANICILAR" EntitySet="KULLANICILAR" />
+            <End Role="YORUMLAR" EntitySet="YORUMLAR" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VeritabanıModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="FILMLER">
+          <Key>
+            <PropertyRef Name="FILMID" />
+          </Key>
+          <Property Name="FILMID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KATEGORIID" Type="Int32" />
+          <Property Name="FILMAD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FILMYIL" Type="DateTime" Precision="0" />
+          <Property Name="FILMPUAN" Type="Byte" />
+          <Property Name="FILMOZET" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="FILMRESIM" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="KATEGORILER" Relationship="Self.FK_FILMLER_KATEGORILER" FromRole="FILMLER" ToRole="KATEGORILER" />
+        </EntityType>
+        <EntityType Name="KATEGORILER">
+          <Key>
+            <PropertyRef Name="KATEGORIID" />
+          </Key>
+          <Property Name="KATEGORIID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KATEGORIAD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="FILMLER" Relationship="Self.FK_FILMLER_KATEGORILER" FromRole="KATEGORILER" ToRole="FILMLER" />
+        </EntityType>
+        <EntityType Name="KULLANICILAR">
+          <Key>
+            <PropertyRef Name="KULLANICIID" />
+          </Key>
+          <Property Name="KULLANICIID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KULLANICIAD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="KULLANICITIP" Type="Boolean" />
+          <Property Name="KULLANICIEMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="KULLANICISIFRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="YORUMLAR" Relationship="Self.FK_YORUMLAR_KULLANICILAR" FromRole="KULLANICILAR" ToRole="YORUMLAR" />
+        </EntityType>
+        <EntityType Name="YORUMLAR">
+          <Key>
+            <PropertyRef Name="YORUMID" />
+          </Key>
+          <Property Name="YORUMID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KULLANICIID" Type="Int32" />
+          <Property Name="KULLANICIYORUM" Type="String" MaxLength="155" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="KULLANICILAR" Relationship="Self.FK_YORUMLAR_KULLANICILAR" FromRole="YORUMLAR" ToRole="KULLANICILAR" />
+        </EntityType>
+        <Association Name="FK_FILMLER_KATEGORILER">
+          <End Role="KATEGORILER" Type="Self.KATEGORILER" Multiplicity="0..1" />
+          <End Role="FILMLER" Type="Self.FILMLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KATEGORILER">
+              <PropertyRef Name="KATEGORIID" />
+            </Principal>
+            <Dependent Role="FILMLER">
+              <PropertyRef Name="KATEGORIID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YORUMLAR_KULLANICILAR">
+          <End Role="KULLANICILAR" Type="Self.KULLANICILAR" Multiplicity="0..1" />
+          <End Role="YORUMLAR" Type="Self.YORUMLAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KULLANICILAR">
+              <PropertyRef Name="KULLANICIID" />
+            </Principal>
+            <Dependent Role="YORUMLAR">
+              <PropertyRef Name="KULLANICIID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="VeritabanıEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="FILMLER" EntityType="Self.FILMLER" />
+          <EntitySet Name="KATEGORILER" EntityType="Self.KATEGORILER" />
+          <EntitySet Name="KULLANICILAR" EntityType="Self.KULLANICILAR" />
+          <EntitySet Name="YORUMLAR" EntityType="Self.YORUMLAR" />
+          <AssociationSet Name="FK_FILMLER_KATEGORILER" Association="Self.FK_FILMLER_KATEGORILER">
+            <End Role="KATEGORILER" EntitySet="KATEGORILER" />
+            <End Role="FILMLER" EntitySet="FILMLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YORUMLAR_KULLANICILAR" Association="Self.FK_YORUMLAR_KULLANICILAR">
+            <End Role="KULLANICILAR" EntitySet="KULLANICILAR" />
+            <End Role="YORUMLAR" EntitySet="YORUMLAR" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VeritabanıModelStoreContainer" CdmEntityContainer="VeritabanıEntities1">
+          <EntitySetMapping Name="FILMLER">
+            <EntityTypeMapping TypeName="VeritabanıModel.FILMLER">
+              <MappingFragment StoreEntitySet="FILMLER">
+                <ScalarProperty Name="FILMID" ColumnName="FILMID" />
+                <ScalarProperty Name="KATEGORIID" ColumnName="KATEGORIID" />
+                <ScalarProperty Name="FILMAD" ColumnName="FILMAD" />
+                <ScalarProperty Name="FILMYIL" ColumnName="FILMYIL" />
+                <ScalarProperty Name="FILMPUAN" ColumnName="FILMPUAN" />
+                <ScalarProperty Name="FILMOZET" ColumnName="FILMOZET" />
+                <ScalarProperty Name="FILMRESIM" ColumnName="FILMRESIM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KATEGORILER">
+            <EntityTypeMapping TypeName="VeritabanıModel.KATEGORILER">
+              <MappingFragment StoreEntitySet="KATEGORILER">
+                <ScalarProperty Name="KATEGORIID" ColumnName="KATEGORIID" />
+                <ScalarProperty Name="KATEGORIAD" ColumnName="KATEGORIAD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KULLANICILAR">
+            <EntityTypeMapping TypeName="VeritabanıModel.KULLANICILAR">
+              <MappingFragment StoreEntitySet="KULLANICILAR">
+                <ScalarProperty Name="KULLANICIID" ColumnName="KULLANICIID" />
+                <ScalarProperty Name="KULLANICIAD" ColumnName="KULLANICIAD" />
+                <ScalarProperty Name="KULLANICITIP" ColumnName="KULLANICITIP" />
+                <ScalarProperty Name="KULLANICIEMAIL" ColumnName="KULLANICIEMAIL" />
+                <ScalarProperty Name="KULLANICISIFRE" ColumnName="KULLANICISIFRE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YORUMLAR">
+            <EntityTypeMapping TypeName="VeritabanıModel.YORUMLAR">
+              <MappingFragment StoreEntitySet="YORUMLAR">
+                <ScalarProperty Name="YORUMID" ColumnName="YORUMID" />
+                <ScalarProperty Name="KULLANICIID" ColumnName="KULLANICIID" />
+                <ScalarProperty Name="KULLANICIYORUM" ColumnName="KULLANICIYORUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
