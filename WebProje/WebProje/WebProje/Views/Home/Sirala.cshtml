@@ -1,0 +1,39 @@
+﻿@using WebProje.Models.EntityFramework
+@model List<FILMLER>
+
+@{
+    ViewBag.Title = "Sirala";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("Sirala", "Home", FormMethod.Post))
+{
+
+<table class="table table-bordered">
+
+    <thead>
+        
+    <tr>
+        <th>FİLM ADI</th>
+        <th>FİLM ÇIKIŞ YILI</th>
+        <th>FİLM KATEGORİSİ</th>
+        <th>FİLM PUANI</th>
+    </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var film in Model)
+        {
+        <tr>
+            <td>@film.FILMAD</td>
+            <td>@film.FILMYIL.Value.Date.Year</td>
+            <td>@film.KATEGORILER.KATEGORIAD</td>
+            <td>@film.FILMPUAN</td>
+        </tr>
+        }
+        </tbody>
+
+
+</table>
+}

@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VeritabanıModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="FILMLER">
+    <Key>
+      <PropertyRef Name="FILMID" />
+    </Key>
+    <Property Name="FILMID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KATEGORIID" Type="int" />
+    <Property Name="FILMAD" Type="varchar" MaxLength="50" />
+    <Property Name="FILMYIL" Type="date" />
+    <Property Name="FILMPUAN" Type="tinyint" />
+    <Property Name="FILMOZET" Type="varchar" MaxLength="1000" />
+    <Property Name="FILMFOTO" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="KATEGORILER">
+    <Key>
+      <PropertyRef Name="KATEGORIID" />
+    </Key>
+    <Property Name="KATEGORIID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KATEGORIAD" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="KULLANICILAR">
+    <Key>
+      <PropertyRef Name="KULLANICIID" />
+    </Key>
+    <Property Name="KULLANICIID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KULLANICIAD" Type="varchar" MaxLength="50" />
+    <Property Name="KULLANICITIP" Type="bit" />
+    <Property Name="KULLANICIEMAIL" Type="varchar" MaxLength="50" />
+    <Property Name="KULLANICISIFRE" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="YORUMLAR">
+    <Key>
+      <PropertyRef Name="YORUMID" />
+    </Key>
+    <Property Name="YORUMID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KULLANICIID" Type="int" />
+    <Property Name="KULLANICIYORUM" Type="varchar" MaxLength="155" />
+  </EntityType>
+  <Association Name="FK_FILMLER_KATEGORILER">
+    <End Role="KATEGORILER" Type="Self.KATEGORILER" Multiplicity="0..1" />
+    <End Role="FILMLER" Type="Self.FILMLER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KATEGORILER">
+        <PropertyRef Name="KATEGORIID" />
+      </Principal>
+      <Dependent Role="FILMLER">
+        <PropertyRef Name="KATEGORIID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_YORUMLAR_KULLANICILAR">
+    <End Role="KULLANICILAR" Type="Self.KULLANICILAR" Multiplicity="0..1" />
+    <End Role="YORUMLAR" Type="Self.YORUMLAR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KULLANICILAR">
+        <PropertyRef Name="KULLANICIID" />
+      </Principal>
+      <Dependent Role="YORUMLAR">
+        <PropertyRef Name="KULLANICIID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="VeritabanıModelStoreContainer">
+    <EntitySet Name="FILMLER" EntityType="Self.FILMLER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KATEGORILER" EntityType="Self.KATEGORILER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KULLANICILAR" EntityType="Self.KULLANICILAR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="YORUMLAR" EntityType="Self.YORUMLAR" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_FILMLER_KATEGORILER" Association="Self.FK_FILMLER_KATEGORILER">
+      <End Role="KATEGORILER" EntitySet="KATEGORILER" />
+      <End Role="FILMLER" EntitySet="FILMLER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_YORUMLAR_KULLANICILAR" Association="Self.FK_YORUMLAR_KULLANICILAR">
+      <End Role="KULLANICILAR" EntitySet="KULLANICILAR" />
+      <End Role="YORUMLAR" EntitySet="YORUMLAR" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

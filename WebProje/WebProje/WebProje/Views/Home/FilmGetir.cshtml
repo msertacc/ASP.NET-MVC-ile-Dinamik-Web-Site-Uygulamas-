@@ -1,0 +1,35 @@
+﻿@model WebProje.Models.EntityFramework.FILMLER
+@{
+    ViewBag.Title = "FilmGetir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("FilmGuncelle", "Home", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.FILMID)
+        @Html.TextBoxFor(m => m.FILMID, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.FILMAD)
+        @Html.TextBoxFor(m => m.FILMAD, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.KATEGORILER.KATEGORIAD)
+        @Html.DropDownListFor(m => m.KATEGORILER.KATEGORIID, (List<SelectListItem>)ViewBag.veri, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.FILMYIL)
+        @Html.TextBoxFor(m => m.FILMYIL, new { @class = "form-control", type = "date" })
+        <br />
+        @Html.LabelFor(m => m.FILMPUAN)
+        @Html.TextBoxFor(m => m.FILMPUAN, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.FILMOZET)
+        @Html.TextAreaFor(m => m.FILMOZET, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.FILMFOTO)
+        @Html.TextAreaFor(m => m.FILMFOTO, new { @class = "form-control" })
+
+        <button type="submit" class="btn btn-primary">KAYDET</button>
+    </div>
+    
+}
+
