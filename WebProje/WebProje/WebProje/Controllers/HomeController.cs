@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Data.Entity;
 using WebProje.Models.EntityFramework;
 using System.Runtime.Remoting.Messaging;
+using System.Web.UI.WebControls;
 
 namespace WebProje.Controllers
 {
@@ -18,7 +19,11 @@ namespace WebProje.Controllers
         
         public ActionResult Index()
         {
-            return View();
+            var veriler = db.FILMLER.OrderByDescending(x=>x.FILMPUAN).ToList();
+
+            veriler.RemoveRange(3, veriler.Count - 3);
+            
+            return View(veriler);
         }
         [Route("Editor")]
         public ActionResult Sirala()

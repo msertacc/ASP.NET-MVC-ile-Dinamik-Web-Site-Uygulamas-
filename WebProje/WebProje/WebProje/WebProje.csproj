@@ -102,7 +102,10 @@
     <Content Include="Content\css\stylefooter.css" />
     <Content Include="Content\css\stylelogin.css" />
     <Content Include="Content\css\giris.css" />
+    <Content Include="Content\images\12angry.jpg" />
+    <Content Include="Content\images\awakenings.jpg" />
     <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\yesilyol.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Models\EntityFramework\Veritabani.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -148,6 +151,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\FilmController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KategoriController.cs" />
     <Compile Include="Controllers\KayitOlController.cs" />
     <Compile Include="Controllers\SecurityController.cs" />
     <Compile Include="Global.asax.cs">
@@ -206,6 +210,9 @@
     <Content Include="Views\KayitOl\Kayit.cshtml" />
     <Content Include="Views\Home\Sirala.cshtml" />
     <Content Include="Views\Home\FilmGetir.cshtml" />
+    <Content Include="Views\Kategori\Index.cshtml" />
+    <Content Include="Views\Kategori\Ekle.cshtml" />
+    <Content Include="Views\Kategori\KategoriGetir.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
