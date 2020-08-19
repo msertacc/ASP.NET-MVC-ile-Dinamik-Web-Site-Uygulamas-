@@ -20,10 +20,10 @@ namespace WebProje.Models.EntityFramework
         {
             this.YORUMLAR = new HashSet<YORUMLAR>();
         }
-        
+    
         
         public int KULLANICIID { get; set; }
-        [Required(ErrorMessage ="Kullanýcý Adý Girilmelidir")]
+        [Required(ErrorMessage = "Kullanýcý Adý Girilmelidir")]
         public string KULLANICIAD { get; set; }
         public Nullable<bool> KULLANICITIP { get; set; }
         [Required(ErrorMessage = "e-Mail Girilmelidir")]

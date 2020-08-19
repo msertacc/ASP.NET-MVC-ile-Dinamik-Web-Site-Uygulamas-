@@ -26,6 +26,9 @@ namespace WebProje.Controllers
             if (kullanici != null)
             {
                 FormsAuthentication.SetAuthCookie(kullanici.KULLANICIEMAIL, false);
+                Session["user"] = kullanici.KULLANICIID;
+                Session["uyetip"] = kullanici.KULLANICITIP == true ? "Admin " : "Üye";
+                Session["uyead"] = kullanici.KULLANICIAD;
                 return RedirectToAction("Index","Home");
             }
             else
@@ -35,6 +38,8 @@ namespace WebProje.Controllers
             }
             
         }
+        
+       
 
         public ActionResult Logout()
         {

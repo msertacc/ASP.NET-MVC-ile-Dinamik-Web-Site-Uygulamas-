@@ -1,0 +1,37 @@
+﻿@using WebProje.Models.EntityFramework
+@model List<FILMLER>
+@{
+    ViewBag.Title = "KategoriFilmGetir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h2 align="center" class="bg-warning" style=" color:#000000;font:bold 20px tahoma;">KATEGORİYE AİT FİLMLER</h2>
+
+<table class="table table-bordered bg-warning" style="font:bold 16px tahoma;">
+    <thead>
+        <tr>
+            <th>FİLM ID</th>
+            <th>FİLM ADI</th>
+            <th>FİLM YILI</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var veri in Model)
+        {
+            <tr>
+                <td>@veri.FILMID</td>
+                <td>@veri.FILMAD</td>
+                <td>@veri.FILMYIL.Value.Date.Year</td>
+            </tr>
+
+
+        }
+
+    </tbody>
+
+
+
+
+</table>
+

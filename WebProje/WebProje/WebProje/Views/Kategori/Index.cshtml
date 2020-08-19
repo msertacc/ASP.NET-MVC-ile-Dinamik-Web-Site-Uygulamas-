@@ -5,30 +5,48 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<table class="table table-bordered">
+<h2 align="center" class="bg-warning" style=" color:#000000;font:bold 20px tahoma;">KATEGORİLER</h2>
+<table id="ktg1" class="table table-bordered bg-warning " style="font:bold 16px tahoma;">
     <thead>
         <tr>
             <th>KATEGORİ ID</th>
             <th>KATEGORİ ADI</th>
             <th>SİL</th>
             <th>GÜNCELLE</th>
+            <th>FİLMLER</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var veri in Model)
         {
-        <tr>
+            <tr>
 
-            <td>@veri.KATEGORIID</td>
-            <td>@veri.KATEGORIAD</td>
-            <td><a class="btn btn-danger" href="/Kategori/Sil/@veri.KATEGORIID">SİL</a></td>
-            <td><a class="btn btn-primary" href="/Kategori/KategoriGetir/@veri.KATEGORIID">GUNCELLE</a></td>
+                <td>@veri.KATEGORIID</td>
+                <td>@veri.KATEGORIAD</td>
+                <td><a class="btn btn-danger" href="/Kategori/Sil/@veri.KATEGORIID">SİL</a></td>
+                <td><a class="btn btn-primary" href="/Kategori/KategoriGetir/@veri.KATEGORIID">GüNCELLE</a></td>
+                <td><a class="btn btn-dark" href="/Kategori/KategoriFilmGetir/@veri.KATEGORIID">FİLMLER</a></td>
 
-        </tr>
+            </tr>
         }
-        </tbody>
+    </tbody>
 </table>
 
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+
+    $('#ktg1').dataTable({});
+
+</script>
 <a href="/Kategori/Ekle" class="btn btn-primary">YENİ KATEGORİ EKLE</a>

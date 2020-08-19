@@ -6,34 +6,46 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
+<h2 align="center" class="bg-warning" style=" color:#000000;font:bold 20px tahoma;">★EN İYİLER SIRALAMASI★</h2>
 @using (Html.BeginForm("Sirala", "Home", FormMethod.Post))
 {
 
-<table class="table table-bordered  bg-warning">
+    <table class="table table-bordered  bg-warning" id="tbl1" style="font:bold 16px tahoma;">
 
-    <thead>
-        
-    <tr>
-        <th>FİLM ADI</th>
-        <th>FİLM ÇIKIŞ YILI</th>
-        <th>FİLM KATEGORİSİ</th>
-        <th>FİLM PUANI</th>
-    </tr>
-    </thead>
-    <tbody>
+        <thead>
 
-        @foreach (var film in Model)
-        {
-        <tr>
-            <td>@film.FILMAD</td>
-            <td>@film.FILMYIL.Value.Date.Year</td>
-            <td>@film.KATEGORILER.KATEGORIAD</td>
-            <td>@film.FILMPUAN</td>
-        </tr>
-        }
+            <tr>
+
+                <th>FİLM ADI</th>
+                <th>FİLM ÇIKIŞ YILI</th>
+                <th>FİLM KATEGORİSİ</th>
+                <th>FİLM PUANI</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var film in Model)
+            {
+
+                <tr>
+
+                    <td>@film.FILMAD</td>
+                    <td>@film.FILMYIL.Value.Date.Year</td>
+                    <td>@film.KATEGORILER.KATEGORIAD</td>
+                    <td>@film.FILMPUAN</td>
+                </tr>
+
+            }
         </tbody>
 
-
-</table>
+        
+    </table>
 }
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+

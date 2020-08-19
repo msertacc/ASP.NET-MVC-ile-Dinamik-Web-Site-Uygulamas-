@@ -39,6 +39,8 @@
           <ScalarProperty Name="YORUMID" ColumnName="YORUMID" />
           <ScalarProperty Name="KULLANICIID" ColumnName="KULLANICIID" />
           <ScalarProperty Name="KULLANICIYORUM" ColumnName="KULLANICIYORUM" />
+          <ScalarProperty Name="YORUMFILMID" ColumnName="YORUMFILMID" />
+          <ScalarProperty Name="YORUMPUAN" ColumnName="YORUMPUAN" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

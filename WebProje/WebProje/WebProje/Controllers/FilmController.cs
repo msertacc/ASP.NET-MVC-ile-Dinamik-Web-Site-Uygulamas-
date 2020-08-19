@@ -39,9 +39,9 @@ namespace WebProje.Controllers
             p1.KATEGORILER = yeni;
             db.FILMLER.Add(p1);
             db.SaveChanges();
-
             return RedirectToAction("Kategoriler","Home");
         }
+        
 
         
     }

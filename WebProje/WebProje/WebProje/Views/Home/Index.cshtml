@@ -1,9 +1,11 @@
 ﻿@using WebProje.Models.EntityFramework
 @model List<FILMLER>
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 
 <h2 align="center" class="bg-warning" style=" color:#000000;font:bold 20px tahoma;">BU AY EN ÇOK İZLENEN 3 FİLM</h2>
 
@@ -50,7 +52,7 @@
 
 <div style="margin-top:50px">
     <h2 align="center" class="bg-warning" style=" color:#000000;font:bold 20px tahoma;">EDİTÖRÜN EN İYİ ÜÇLÜSÜ</h2>
-    <div class="card-group"> 
+    <div class="card-group">
         @foreach (var veriler in Model)
         {
             <div class="card">
@@ -63,7 +65,7 @@
                 </div>
             </div>
         }
-        </div>
+    </div>
 </div>
 
 

@@ -4,12 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a43cfccf299d4172b192eb063dcbd8e1" Name="Diagram1">
-        <EntityTypeShape EntityType="VeritabanıModel.FILMLER" Width="1.5" PointX="5" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="VeritabanıModel.KATEGORILER" Width="1.5" PointX="2.75" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="VeritabanıModel.KULLANICILAR" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="VeritabanıModel.YORUMLAR" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+      <Diagram DiagramId="d5569f42e00a4adb94b4a28a528c8ce4" Name="Diagram1">
+        <EntityTypeShape EntityType="VeritabanıModel.FILMLER" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="VeritabanıModel.KATEGORILER" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VeritabanıModel.KULLANICILAR" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VeritabanıModel.YORUMLAR" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
         <AssociationConnector Association="VeritabanıModel.FK_FILMLER_KATEGORILER" ManuallyRouted="false" />
+        <AssociationConnector Association="VeritabanıModel.FK_YORUMLAR_FILMLER" ManuallyRouted="false" />
         <AssociationConnector Association="VeritabanıModel.FK_YORUMLAR_KULLANICILAR" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>

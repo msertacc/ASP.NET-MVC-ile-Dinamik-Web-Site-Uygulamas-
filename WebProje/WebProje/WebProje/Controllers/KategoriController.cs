@@ -52,5 +52,11 @@ namespace WebProje.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult KategoriFilmGetir(int id)
+        {
+            var degerler = db.FILMLER.Where(x => x.KATEGORIID == id).ToList();
+            return View(degerler);
+        }
     }
 }

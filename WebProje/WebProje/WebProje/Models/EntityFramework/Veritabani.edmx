@@ -41,6 +41,8 @@
           <Property Name="YORUMID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="KULLANICIID" Type="int" />
           <Property Name="KULLANICIYORUM" Type="varchar" MaxLength="155" />
+          <Property Name="YORUMFILMID" Type="int" />
+          <Property Name="YORUMPUAN" Type="tinyint" />
         </EntityType>
         <Association Name="FK_FILMLER_KATEGORILER">
           <End Role="KATEGORILER" Type="Self.KATEGORILER" Multiplicity="0..1" />
@@ -51,6 +53,18 @@
             </Principal>
             <Dependent Role="FILMLER">
               <PropertyRef Name="KATEGORIID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YORUMLAR_FILMLER">
+          <End Role="FILMLER" Type="Self.FILMLER" Multiplicity="0..1" />
+          <End Role="YORUMLAR" Type="Self.YORUMLAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FILMLER">
+              <PropertyRef Name="FILMID" />
+            </Principal>
+            <Dependent Role="YORUMLAR">
+              <PropertyRef Name="YORUMFILMID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -75,6 +89,10 @@
             <End Role="KATEGORILER" EntitySet="KATEGORILER" />
             <End Role="FILMLER" EntitySet="FILMLER" />
           </AssociationSet>
+          <AssociationSet Name="FK_YORUMLAR_FILMLER" Association="Self.FK_YORUMLAR_FILMLER">
+            <End Role="FILMLER" EntitySet="FILMLER" />
+            <End Role="YORUMLAR" EntitySet="YORUMLAR" />
+          </AssociationSet>
           <AssociationSet Name="FK_YORUMLAR_KULLANICILAR" Association="Self.FK_YORUMLAR_KULLANICILAR">
             <End Role="KULLANICILAR" EntitySet="KULLANICILAR" />
             <End Role="YORUMLAR" EntitySet="YORUMLAR" />
@@ -97,6 +115,7 @@
           <Property Name="FILMOZET" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
           <Property Name="FILMFOTO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="KATEGORILER" Relationship="Self.FK_FILMLER_KATEGORILER" FromRole="FILMLER" ToRole="KATEGORILER" />
+          <NavigationProperty Name="YORUMLAR" Relationship="Self.FK_YORUMLAR_FILMLER" FromRole="FILMLER" ToRole="YORUMLAR" />
         </EntityType>
         <EntityType Name="KATEGORILER">
           <Key>
@@ -124,6 +143,9 @@
           <Property Name="YORUMID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="KULLANICIID" Type="Int32" />
           <Property Name="KULLANICIYORUM" Type="String" MaxLength="155" FixedLength="false" Unicode="false" />
+          <Property Name="YORUMFILMID" Type="Int32" />
+          <Property Name="YORUMPUAN" Type="Byte" />
+          <NavigationProperty Name="FILMLER" Relationship="Self.FK_YORUMLAR_FILMLER" FromRole="YORUMLAR" ToRole="FILMLER" />
           <NavigationProperty Name="KULLANICILAR" Relationship="Self.FK_YORUMLAR_KULLANICILAR" FromRole="YORUMLAR" ToRole="KULLANICILAR" />
         </EntityType>
         <Association Name="FK_FILMLER_KATEGORILER">
@@ -135,6 +157,18 @@
             </Principal>
             <Dependent Role="FILMLER">
               <PropertyRef Name="KATEGORIID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YORUMLAR_FILMLER">
+          <End Role="FILMLER" Type="Self.FILMLER" Multiplicity="0..1" />
+          <End Role="YORUMLAR" Type="Self.YORUMLAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FILMLER">
+              <PropertyRef Name="FILMID" />
+            </Principal>
+            <Dependent Role="YORUMLAR">
+              <PropertyRef Name="YORUMFILMID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -158,6 +192,10 @@
           <AssociationSet Name="FK_FILMLER_KATEGORILER" Association="Self.FK_FILMLER_KATEGORILER">
             <End Role="KATEGORILER" EntitySet="KATEGORILER" />
             <End Role="FILMLER" EntitySet="FILMLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YORUMLAR_FILMLER" Association="Self.FK_YORUMLAR_FILMLER">
+            <End Role="FILMLER" EntitySet="FILMLER" />
+            <End Role="YORUMLAR" EntitySet="YORUMLAR" />
           </AssociationSet>
           <AssociationSet Name="FK_YORUMLAR_KULLANICILAR" Association="Self.FK_YORUMLAR_KULLANICILAR">
             <End Role="KULLANICILAR" EntitySet="KULLANICILAR" />
@@ -208,6 +246,8 @@
                 <ScalarProperty Name="YORUMID" ColumnName="YORUMID" />
                 <ScalarProperty Name="KULLANICIID" ColumnName="KULLANICIID" />
                 <ScalarProperty Name="KULLANICIYORUM" ColumnName="KULLANICIYORUM" />
+                <ScalarProperty Name="YORUMFILMID" ColumnName="YORUMFILMID" />
+                <ScalarProperty Name="YORUMPUAN" ColumnName="YORUMPUAN" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

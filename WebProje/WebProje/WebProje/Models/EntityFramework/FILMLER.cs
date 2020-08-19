@@ -11,10 +11,15 @@ namespace WebProje.Models.EntityFramework
 {
     using System;
     using System.Collections.Generic;
-    using System.Web;
-
+    
     public partial class FILMLER
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public FILMLER()
+        {
+            this.YORUMLAR = new HashSet<YORUMLAR>();
+        }
+    
         public int FILMID { get; set; }
         public Nullable<int> KATEGORIID { get; set; }
         public string FILMAD { get; set; }
@@ -22,8 +27,9 @@ namespace WebProje.Models.EntityFramework
         public Nullable<byte> FILMPUAN { get; set; }
         public string FILMOZET { get; set; }
         public string FILMFOTO { get; set; }
-
-
+    
         public virtual KATEGORILER KATEGORILER { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<YORUMLAR> YORUMLAR { get; set; }
     }
 }

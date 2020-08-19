@@ -76,7 +76,31 @@ namespace WebProje.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
 
-        } 
-        
+        }
+
+        //public ActionResult FilmYorumla()
+        //{
+
+        //}
+
+        [HttpGet]
+        public ActionResult YorumYap()
+        {
+            return View();
+        }
+
+
+
+        [HttpPost]
+        public ActionResult YorumYap(YORUMLAR p1)
+        {
+            db.YORUMLAR.Add(p1);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+
+
+
     }
 }

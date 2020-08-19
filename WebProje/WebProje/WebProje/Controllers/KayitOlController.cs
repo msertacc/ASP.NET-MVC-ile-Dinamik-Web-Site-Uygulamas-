@@ -29,7 +29,7 @@ namespace WebProje.Controllers
             {
                 return View("Kayit");
             }
-
+            p1.KULLANICITIP = false;
             db.KULLANICILAR.Add(p1);
             db.SaveChanges();
             return RedirectToAction("Login", "Security");
