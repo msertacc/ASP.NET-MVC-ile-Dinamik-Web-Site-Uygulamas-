@@ -10,8 +10,8 @@ namespace WebProje.Controllers
 {
     public class FilmController : Controller
     {
-        // GET: Film
         VeritabanıEntitiess db = new VeritabanıEntitiess();
+
         public ActionResult Index()
         {
             var veriler = db.FILMLER.ToList();

@@ -14,16 +14,13 @@ namespace WebProje.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: Home
 
         VeritabanıEntitiess db = new VeritabanıEntitiess();
 
         public ActionResult Index()
         {
             var veriler = db.FILMLER.OrderByDescending(x=>x.FILMPUAN).ToList();
-
             veriler.RemoveRange(3, veriler.Count - 3);
-            
             return View(veriler);
         }
 
@@ -36,16 +33,16 @@ namespace WebProje.Controllers
         public ActionResult Kategoriler()
         {
             var veriler = db.FILMLER.ToList();
-
             return View(veriler);
         }
+
         [Authorize(Roles = "True")]
         public ActionResult FilmSil(int id)
         {
             var filmSil = db.FILMLER.Find(id);
             db.FILMLER.Remove(filmSil);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Kategoriler","Home");
         }
 
         public ActionResult FilmGetir(int id)
@@ -77,16 +74,12 @@ namespace WebProje.Controllers
             film.KATEGORIID = yeni.KATEGORIID;
             db.SaveChanges();
             return RedirectToAction("Index");
-
         }
-
         [HttpGet]
         public ActionResult YorumYap()
         {
             return View();
         }
-
-
 
         [Authorize(Roles = "True,False")]
         [HttpPost]
@@ -94,11 +87,7 @@ namespace WebProje.Controllers
         {
             db.YORUMLAR.Add(p1);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Kategoriler","Home");
         }
-
-
-
-
     }
 }

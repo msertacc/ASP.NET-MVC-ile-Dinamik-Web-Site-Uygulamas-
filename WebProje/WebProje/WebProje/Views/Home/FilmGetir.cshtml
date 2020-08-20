@@ -1,14 +1,18 @@
 ﻿@model WebProje.Models.EntityFramework.FILMLER
 @{
-    ViewBag.Title = "FilmGetir";
+    ViewBag.Title = "Film Güncelle";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<h2>Film Güncelleme Sayfası</h2>
 @using (Html.BeginForm("FilmGuncelle", "Home", FormMethod.Post))
 {
     <div class="form-group">
-        @Html.LabelFor(m => m.FILMID)
-        @Html.TextBoxFor(m => m.FILMID, new { @class = "form-control" })
+        <div style="display: none;">
+            @Html.LabelFor(m => m.FILMID)
+            @Html.TextBoxFor(m => m.FILMID, new { @class = "form-control" })
+
+        </div>
         <br />
         @Html.LabelFor(m => m.FILMAD)
         @Html.TextBoxFor(m => m.FILMAD, new { @class = "form-control" })
@@ -28,7 +32,7 @@
         @Html.LabelFor(m => m.FILMFOTO)
         @Html.TextAreaFor(m => m.FILMFOTO, new { @class = "form-control" })
 
-        <button type="submit" class="btn btn-primary">KAYDET</button>
+        <button type="submit" class="btn btn-primary">@WebProje.Resources.HomeTexts.kaydet</button>
     </div>
     
 }

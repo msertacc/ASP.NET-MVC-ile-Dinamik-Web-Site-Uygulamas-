@@ -9,7 +9,6 @@ namespace WebProje.Controllers
 {
     public class KategoriController : Controller
     {
-        // GET: Kategori
         VeritabanıEntitiess db = new VeritabanıEntitiess();
         public ActionResult Index()
         {
@@ -39,7 +38,7 @@ namespace WebProje.Controllers
         {
             db.KATEGORILER.Add(k);
             db.SaveChanges();
-            return View();
+            return RedirectToAction("Index","Kategori");
         }
 
         public ActionResult KategoriGetir(int id)
@@ -74,8 +73,7 @@ namespace WebProje.Controllers
             var silYorum = db.YORUMLAR.Find(id);
             db.YORUMLAR.Remove(silYorum);
             db.SaveChanges();
-            return RedirectToAction("Index");
-            
+            return RedirectToAction("Kategoriler", "Home"); 
         }
     }
 }

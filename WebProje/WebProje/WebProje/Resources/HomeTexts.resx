@@ -168,6 +168,9 @@
   <data name="kategoriler" xml:space="preserve">
     <value>KATEGORİLER</value>
   </data>
+  <data name="kaydet" xml:space="preserve">
+    <value>SAVE</value>
+  </data>
   <data name="sil" xml:space="preserve">
     <value>SİL</value>
   </data>

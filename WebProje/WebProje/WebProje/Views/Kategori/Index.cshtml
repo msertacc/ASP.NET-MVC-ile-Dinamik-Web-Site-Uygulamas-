@@ -1,7 +1,7 @@
 ﻿@using WebProje.Models.EntityFramework
 @model List<KATEGORILER>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = WebProje.Resources.HomeTexts.kategoriler;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -13,27 +13,27 @@
             <th>KATEGORİ ADI</th>
             @if (User.IsInRole("True"))
             {
-                <th>SİL</th>
-                <th>GÜNCELLE</th>
+                <th>@WebProje.Resources.HomeTexts.sil</th>
+                <th>@WebProje.Resources.HomeTexts.guncelle</th>
             }
 
-            <th>FİLMLER</th>
+            <th>@WebProje.Resources.HomeTexts.filmler</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var veri in Model)
         {
-        <tr>
-            <td>@veri.KATEGORIID</td>
-            <td>@veri.KATEGORIAD</td>
-            @if (User.IsInRole("True"))
-            {
-                <td><a class="btn btn-danger" href="/Kategori/Sil/@veri.KATEGORIID">SİL</a></td>
-                <td><a class="btn btn-primary" href="/Kategori/KategoriGetir/@veri.KATEGORIID">GüNCELLE</a></td>
-            }
-            <td><a class="btn btn-dark" href="/Kategori/KategoriFilmGetir/@veri.KATEGORIID">@WebProje.Resources.HomeTexts.filmler</a></td>
+            <tr>
+                <td>@veri.KATEGORIID</td>
+                <td>@veri.KATEGORIAD</td>
+                @if (User.IsInRole("True"))
+                {
+                    <td><a class="btn btn-danger" href="/Kategori/Sil/@veri.KATEGORIID">@WebProje.Resources.HomeTexts.sil</a></td>
+                    <td><a class="btn btn-primary" href="/Kategori/KategoriGetir/@veri.KATEGORIID">@WebProje.Resources.HomeTexts.guncelle</a></td>
+                }
+                <td><a class="btn btn-dark" href="/Kategori/KategoriFilmGetir/@veri.KATEGORIID">@WebProje.Resources.HomeTexts.filmler</a></td>
 
-        </tr>
+            </tr>
         }
     </tbody>
 </table>
@@ -55,4 +55,7 @@
     $('#ktg1').dataTable({});
 
 </script>
-<a href="/Kategori/Ekle" class="btn btn-primary">YENİ KATEGORİ EKLE</a>
+@if (User.IsInRole("True"))
+{
+    <a href="/Kategori/Ekle" class="btn btn-primary">@WebProje.Resources.HomeTexts.ekle</a>
+}

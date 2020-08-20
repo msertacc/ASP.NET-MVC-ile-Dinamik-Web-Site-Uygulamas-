@@ -168,6 +168,9 @@
   <data name="kategoriler" xml:space="preserve">
     <value>CATEGORIES</value>
   </data>
+  <data name="kaydet" xml:space="preserve">
+    <value>KAYDET</value>
+  </data>
   <data name="sil" xml:space="preserve">
     <value>DELETE</value>
   </data>

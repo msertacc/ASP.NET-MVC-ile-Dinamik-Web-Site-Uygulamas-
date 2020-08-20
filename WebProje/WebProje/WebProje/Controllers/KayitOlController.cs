@@ -9,9 +9,6 @@ namespace WebProje.Controllers
 {
     public class KayitOlController : Controller
     {
-        // GET: KayitOl
-
-
         VeritabanıEntitiess db = new VeritabanıEntitiess();
 
         [HttpGet]

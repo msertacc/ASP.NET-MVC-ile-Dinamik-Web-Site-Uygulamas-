@@ -11,7 +11,7 @@ namespace WebProje.Controllers
  
     public class SecurityController : Controller
     {
-        // GET: Security
+
         VeritabanıEntitiess db = new VeritabanıEntitiess();
         [AllowAnonymous]
         public ActionResult Login()

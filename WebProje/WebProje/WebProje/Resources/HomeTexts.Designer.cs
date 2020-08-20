@@ -214,6 +214,15 @@ namespace WebProje.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SAVE.
+        /// </summary>
+        public static string kaydet {
+            get {
+                return ResourceManager.GetString("kaydet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SİL.
         /// </summary>
         public static string sil {

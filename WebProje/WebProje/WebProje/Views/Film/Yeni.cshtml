@@ -1,10 +1,11 @@
 ﻿@model WebProje.Models.EntityFramework.FILMLER
 @{
-    ViewBag.Title = "Yeni";
+    ViewBag.Title = "FİLM EKLE";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    <title>@ViewBag.Title</title>
 }
 
-<h2>Yeni</h2>
+<h2>Yeni Film Ekle</h2>
 
 <form method="post" class="form-group">
     <div>
@@ -32,7 +33,7 @@
         <input type="text" class="form-control" name="FILMFOTO" />
     </div>
     <div style="margin-top:20px">
-        <button class="btn btn-info">FİLM EKLE</button>
+        <button class="btn btn-info">@WebProje.Resources.HomeTexts.ekle</button>
     </div>
 
 

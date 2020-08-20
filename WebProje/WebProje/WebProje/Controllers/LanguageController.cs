@@ -10,7 +10,7 @@ namespace WebProje.Controllers
 {
     public class LanguageController : Controller
     {
-        // GET: Language
+
         public ActionResult Index()
         {
             return View();

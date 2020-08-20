@@ -19,9 +19,7 @@ namespace WebProje.Models.EntityFramework
         public Nullable<int> KULLANICIID { get; set; }
         public string KULLANICIYORUM { get; set; }
         public Nullable<int> YORUMFILMID { get; set; }
-
         public Nullable<byte> YORUMPUAN { get; set; }
-    
         public virtual FILMLER FILMLER { get; set; }
         public virtual KULLANICILAR KULLANICILAR { get; set; }
     }
