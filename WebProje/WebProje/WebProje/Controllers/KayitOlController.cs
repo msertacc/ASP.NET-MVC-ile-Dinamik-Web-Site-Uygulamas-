@@ -12,7 +12,7 @@ namespace WebProje.Controllers
         // GET: KayitOl
 
 
-        VeritabanıEntities2 db = new VeritabanıEntities2();
+        VeritabanıEntitiess db = new VeritabanıEntitiess();
 
         [HttpGet]
         [AllowAnonymous]
@@ -29,10 +29,22 @@ namespace WebProje.Controllers
             {
                 return View("Kayit");
             }
-            p1.KULLANICITIP = false;
-            db.KULLANICILAR.Add(p1);
-            db.SaveChanges();
-            return RedirectToAction("Login", "Security");
+            var kontrol = db.KULLANICILAR.Where(x => x.KULLANICIEMAIL == p1.KULLANICIEMAIL).Count();
+            if(kontrol == 0)
+            {
+                p1.KULLANICITIP = false;
+                db.KULLANICILAR.Add(p1);
+                db.SaveChanges();
+                TempData["Success"] = "Uye Olma Islemi Basarılı!";
+                return RedirectToAction("Login", "Security");
+
+            }
+            else
+            {
+                TempData["Crash"] = "Uye Olma Islemi Basarısız! Bu e-maile ait kullanici bulunuyor. ";
+                return View("Kayit");
+            }
+            
         }
     }
 }

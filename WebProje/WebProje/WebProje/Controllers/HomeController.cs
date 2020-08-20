@@ -7,6 +7,8 @@ using System.Data.Entity;
 using WebProje.Models.EntityFramework;
 using System.Runtime.Remoting.Messaging;
 using System.Web.UI.WebControls;
+using System.Threading;
+using System.Globalization;
 
 namespace WebProje.Controllers
 {
@@ -14,9 +16,8 @@ namespace WebProje.Controllers
     {
         // GET: Home
 
-        VeritabanıEntities2 db = new VeritabanıEntities2();
+        VeritabanıEntitiess db = new VeritabanıEntitiess();
 
-        
         public ActionResult Index()
         {
             var veriler = db.FILMLER.OrderByDescending(x=>x.FILMPUAN).ToList();
@@ -25,20 +26,20 @@ namespace WebProje.Controllers
             
             return View(veriler);
         }
-        [Route("Editor")]
+
         public ActionResult Sirala()
         {
             var veriler = db.FILMLER.OrderByDescending(x => x.FILMPUAN).ToList();
             return View(veriler);
         }
-        [Route("Kategoriler")]
+        
         public ActionResult Kategoriler()
         {
             var veriler = db.FILMLER.ToList();
 
             return View(veriler);
         }
-
+        [Authorize(Roles = "True")]
         public ActionResult FilmSil(int id)
         {
             var filmSil = db.FILMLER.Find(id);
@@ -64,6 +65,7 @@ namespace WebProje.Controllers
             return View("FilmGetir", film);
         }
 
+        [Authorize(Roles = "True")]
         public ActionResult FilmGuncelle(FILMLER p)
         {
             var film = db.FILMLER.Find(p.FILMID);
@@ -78,11 +80,6 @@ namespace WebProje.Controllers
 
         }
 
-        //public ActionResult FilmYorumla()
-        //{
-
-        //}
-
         [HttpGet]
         public ActionResult YorumYap()
         {
@@ -91,6 +88,7 @@ namespace WebProje.Controllers
 
 
 
+        [Authorize(Roles = "True,False")]
         [HttpPost]
         public ActionResult YorumYap(YORUMLAR p1)
         {

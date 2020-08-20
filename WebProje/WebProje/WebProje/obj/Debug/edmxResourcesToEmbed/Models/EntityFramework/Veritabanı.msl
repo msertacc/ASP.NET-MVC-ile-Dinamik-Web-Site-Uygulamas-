@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="VeritabanıModelStoreContainer" CdmEntityContainer="VeritabanıEntitiess">
+    <EntitySetMapping Name="FILMLER">
+      <EntityTypeMapping TypeName="VeritabanıModel.FILMLER">
+        <MappingFragment StoreEntitySet="FILMLER">
+          <ScalarProperty Name="FILMID" ColumnName="FILMID" />
+          <ScalarProperty Name="KATEGORIID" ColumnName="KATEGORIID" />
+          <ScalarProperty Name="FILMAD" ColumnName="FILMAD" />
+          <ScalarProperty Name="FILMYIL" ColumnName="FILMYIL" />
+          <ScalarProperty Name="FILMPUAN" ColumnName="FILMPUAN" />
+          <ScalarProperty Name="FILMOZET" ColumnName="FILMOZET" />
+          <ScalarProperty Name="FILMFOTO" ColumnName="FILMFOTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KATEGORILER">
+      <EntityTypeMapping TypeName="VeritabanıModel.KATEGORILER">
+        <MappingFragment StoreEntitySet="KATEGORILER">
+          <ScalarProperty Name="KATEGORIID" ColumnName="KATEGORIID" />
+          <ScalarProperty Name="KATEGORIAD" ColumnName="KATEGORIAD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KULLANICILAR">
+      <EntityTypeMapping TypeName="VeritabanıModel.KULLANICILAR">
+        <MappingFragment StoreEntitySet="KULLANICILAR">
+          <ScalarProperty Name="KULLANICIID" ColumnName="KULLANICIID" />
+          <ScalarProperty Name="KULLANICIAD" ColumnName="KULLANICIAD" />
+          <ScalarProperty Name="KULLANICITIP" ColumnName="KULLANICITIP" />
+          <ScalarProperty Name="KULLANICIEMAIL" ColumnName="KULLANICIEMAIL" />
+          <ScalarProperty Name="KULLANICISIFRE" ColumnName="KULLANICISIFRE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YORUMLAR">
+      <EntityTypeMapping TypeName="VeritabanıModel.YORUMLAR">
+        <MappingFragment StoreEntitySet="YORUMLAR">
+          <ScalarProperty Name="YORUMID" ColumnName="YORUMID" />
+          <ScalarProperty Name="KULLANICIID" ColumnName="KULLANICIID" />
+          <ScalarProperty Name="KULLANICIYORUM" ColumnName="KULLANICIYORUM" />
+          <ScalarProperty Name="YORUMFILMID" ColumnName="YORUMFILMID" />
+          <ScalarProperty Name="YORUMPUAN" ColumnName="YORUMPUAN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -24,7 +24,7 @@ namespace WebProje.Models.EntityFramework
         public Nullable<int> KATEGORIID { get; set; }
         public string FILMAD { get; set; }
         public Nullable<System.DateTime> FILMYIL { get; set; }
-        public Nullable<byte> FILMPUAN { get; set; }
+        public Nullable<double> FILMPUAN { get; set; }
         public string FILMOZET { get; set; }
         public string FILMFOTO { get; set; }
     

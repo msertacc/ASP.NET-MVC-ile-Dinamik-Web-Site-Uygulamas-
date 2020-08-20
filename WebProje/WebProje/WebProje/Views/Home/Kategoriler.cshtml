@@ -4,42 +4,56 @@
     ViewBag.Title = "Kategoriler";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2 align="center" class="bg-warning" style=" color:#000000;font:bold 20px tahoma;">FİLMLER</h2>
+<h2 align="center" class="bg-warning" style=" color:#000000;font:bold 20px tahoma;">@WebProje.Resources.HomeTexts.filmler</h2>
 <div class="container bg-warning" style="border:3px solid #000000">
     @foreach (var veri in Model)
     {
         <div class="card mb-3 bg-dark text-white " style="border:3px solid #000000;font:bold 18px tahoma">
             <img class="card-img-top" src="@veri.FILMFOTO" alt="">
             ÇIKIŞ YILI : @veri.FILMYIL.Value.Date.Year
-            <div class="card-body">
-                <h5 class="card-title">@veri.FILMAD</h5>
-                <p class="card-text">@veri.FILMOZET</p>
-                <p class="card-text">EDİTÖR PUANI : @veri.FILMPUAN</p>
-                <a href="/Home/FilmSil/@veri.FILMID" class="btn btn-danger">SİL</a>
-                <a href="/Home/FilmGetir/@veri.FILMID" class="btn btn-success">GÜNCELLE</a>
+        <div class="card-body">
+            <h5 class="card-title">@veri.FILMAD</h5>
+            <p class="card-text">@veri.FILMOZET</p>
+            <p class="card-text">EDİTÖR PUANI : @veri.FILMPUAN</p>
 
-                <div style="margin-left:380px; margin-top:-100px">
-                    <form action="/Home/YorumYap" method="post">
-                        <label>YORUMUNUZ</label>
-                        <input type="text" class="form-control" name="KULLANICIYORUM" />
-                        <label>PUANINIZ</label>
-                        <input type="text" class="form-control" name="YORUMPUAN" />
+            @if (User.IsInRole("True"))
+            {
+                <a href="/Home/FilmSil/@veri.FILMID" class="btn btn-danger">@WebProje.Resources.HomeTexts.sil</a>
+                <a href="/Home/FilmGetir/@veri.FILMID" class="btn btn-success">@WebProje.Resources.HomeTexts.guncelle</a>
+            }
+
+            <a href="/Kategori/YorumlaraGit/@veri.FILMID" class="btn btn-warning">@WebProje.Resources.HomeTexts.yorumgoruntule</a>
+            <div style="margin-left:380px; margin-top:-100px">
+                <form action="/Home/YorumYap" method="post">
+                    <br />
+                    <label>YORUMUNUZ</label>
+                    <textarea class="form-control" name="KULLANICIYORUM"></textarea>
+                    <br />
+                    <label>FİLME PUAN VERİN</label>
+                    <input type="text" class="col-xs-2" name="YORUMPUAN" />
+
+                    <button class=" btn btn-primary">@WebProje.Resources.HomeTexts.yorumyap</button>
+                    <input type="text" class="form-control" name="KULLANICIID" value="@Session["user"]" style="display: none;" />
+                    <input type="text" class="form-control" name="YORUMFILMID" value="@veri.FILMID" style="display: none;" />
 
 
-                        <input type="text" class="form-control" name="KULLANICIID" value="@Session["user"]" style="display: none;" />
-                        <input type="text" class="form-control" name="YORUMFILMID" value="@veri.FILMID" style="display: none;" />
-                        <button> YORUM YAP</button>
-                    </form>
-
-                </div>
-
-
+                </form>
 
             </div>
+
+
+
+        </div>
         </div>
 
     }
 </div>
 <br />
 
-<a href="/Film/Yeni" class="btn btn-lg btn btn-warning">FİLM EKLE</a>
+
+@if (User.IsInRole("True"))
+{
+
+    <a href="/Film/Yeni" class="btn btn-lg btn btn-warning">FİLM EKLE</a>
+
+}

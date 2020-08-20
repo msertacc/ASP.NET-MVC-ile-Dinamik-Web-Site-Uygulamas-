@@ -10,7 +10,7 @@ namespace WebProje.Controllers
     public class KategoriController : Controller
     {
         // GET: Kategori
-        VeritabanıEntities2 db = new VeritabanıEntities2();
+        VeritabanıEntitiess db = new VeritabanıEntitiess();
         public ActionResult Index()
         {
             var veri = db.KATEGORILER.ToList();
@@ -18,6 +18,7 @@ namespace WebProje.Controllers
             
         }
 
+        [Authorize(Roles="True")]
         public ActionResult Sil(int id)
         {
             var silKategori = db.KATEGORILER.Find(id);
@@ -27,11 +28,13 @@ namespace WebProje.Controllers
             return RedirectToAction("Index");
         }
         [HttpGet]
+        [Authorize(Roles = "True")]
         public ActionResult Ekle()
         {
             return View();
         }
         [HttpPost]
+        [Authorize(Roles = "True")]
         public ActionResult Ekle(KATEGORILER k)
         {
             db.KATEGORILER.Add(k);
@@ -44,7 +47,7 @@ namespace WebProje.Controllers
             var ktgr = db.KATEGORILER.Find(id);
             return View("KategoriGetir", ktgr);
         }
-
+        [Authorize(Roles = "True")]
         public ActionResult Guncelle(KATEGORILER p)
         {
             var ktg = db.KATEGORILER.Find(p.KATEGORIID);
@@ -57,6 +60,22 @@ namespace WebProje.Controllers
         {
             var degerler = db.FILMLER.Where(x => x.KATEGORIID == id).ToList();
             return View(degerler);
+        }
+
+        public ActionResult YorumlaraGit(int id)
+        {
+            var degerler = db.YORUMLAR.Where(x => x.YORUMFILMID == id).ToList();
+            return View(degerler);
+        }
+        [Authorize(Roles = "True")]
+
+        public ActionResult YorumSil(int id)
+        {
+            var silYorum = db.YORUMLAR.Find(id);
+            db.YORUMLAR.Remove(silYorum);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+            
         }
     }
 }

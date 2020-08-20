@@ -99,7 +99,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\logo.png" />
-    <Content Include="Content\css\star.css" />
     <Content Include="Content\css\stylefooter.css" />
     <Content Include="Content\css\stylelogin.css" />
     <Content Include="Content\css\giris.css" />
@@ -265,15 +264,15 @@
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\yesilyol.jpg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\EntityFramework\Veritabani.Context.tt">
+    <Content Include="Models\EntityFramework\Veritabanı.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Veritabani.edmx</DependentUpon>
-      <LastGenOutput>Veritabani.Context.cs</LastGenOutput>
+      <DependentUpon>Veritabanı.edmx</DependentUpon>
+      <LastGenOutput>Veritabanı.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\EntityFramework\Veritabani.tt">
+    <Content Include="Models\EntityFramework\Veritabanı.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Veritabani.edmx</DependentUpon>
-      <LastGenOutput>Veritabani.cs</LastGenOutput>
+      <DependentUpon>Veritabanı.edmx</DependentUpon>
+      <LastGenOutput>Veritabanı.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />
@@ -362,12 +361,12 @@
     <Content Include="Content\DataTables\css\semanticui.scss" />
     <Content Include="Content\DataTables\css\mixins.scss" />
     <Content Include="Content\DataTables\css\common.scss" />
-    <EntityDeploy Include="Models\EntityFramework\Veritabani.edmx">
+    <EntityDeploy Include="Models\EntityFramework\Veritabanı.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Veritabani.Designer.cs</LastGenOutput>
+      <LastGenOutput>Veritabanı.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\EntityFramework\Veritabani.edmx.diagram">
-      <DependentUpon>Veritabani.edmx</DependentUpon>
+    <Content Include="Models\EntityFramework\Veritabanı.edmx.diagram">
+      <DependentUpon>Veritabanı.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
@@ -391,38 +390,50 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KategoriController.cs" />
     <Compile Include="Controllers\KayitOlController.cs" />
+    <Compile Include="Controllers\LanguageController.cs" />
     <Compile Include="Controllers\SecurityController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\FILMLER.cs">
-      <DependentUpon>Veritabani.tt</DependentUpon>
+      <DependentUpon>Veritabanı.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\KATEGORILER.cs">
-      <DependentUpon>Veritabani.tt</DependentUpon>
+      <DependentUpon>Veritabanı.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\KULLANICILAR.cs">
-      <DependentUpon>Veritabani.tt</DependentUpon>
+      <DependentUpon>Veritabanı.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EntityFramework\Veritabani.Context.cs">
+    <Compile Include="Models\EntityFramework\Veritabanı.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Veritabani.Context.tt</DependentUpon>
+      <DependentUpon>Veritabanı.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EntityFramework\Veritabani.cs">
+    <Compile Include="Models\EntityFramework\Veritabanı.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Veritabani.tt</DependentUpon>
+      <DependentUpon>Veritabanı.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EntityFramework\Veritabani.Designer.cs">
+    <Compile Include="Models\EntityFramework\Veritabanı.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Veritabani.edmx</DependentUpon>
+      <DependentUpon>Veritabanı.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\YORUMLAR.cs">
-      <DependentUpon>Veritabani.tt</DependentUpon>
+      <DependentUpon>Veritabanı.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\HomeTexts.en.Designer.cs">
+      <DependentUpon>HomeTexts.en.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\HomeTexts.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HomeTexts.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Security\PersonelRoleProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -452,7 +463,7 @@
     <Content Include="Views\Kategori\Ekle.cshtml" />
     <Content Include="Views\Kategori\KategoriGetir.cshtml" />
     <Content Include="Views\Kategori\KategoriFilmGetir.cshtml" />
-    <Content Include="Views\Home\YorumYap.cshtml" />
+    <Content Include="Views\Kategori\YorumlaraGit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -461,14 +472,22 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Giris\" />
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\HomeTexts.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>HomeTexts.en.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\HomeTexts.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>HomeTexts.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

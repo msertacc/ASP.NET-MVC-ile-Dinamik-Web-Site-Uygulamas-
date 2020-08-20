@@ -6,35 +6,28 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 align="center" class="bg-warning" style=" color:#000000;font:bold 20px tahoma;">★EN İYİLER SIRALAMASI★</h2>
+<h2 align="center" class="bg-warning" style=" color:#000000;font:bold 20px tahoma;">@WebProje.Resources.HomeTexts.eniyilersiralamasi</h2>
 @using (Html.BeginForm("Sirala", "Home", FormMethod.Post))
 {
 
     <table class="table table-bordered  bg-warning" id="tbl1" style="font:bold 16px tahoma;">
-
         <thead>
-
             <tr>
-
-                <th>FİLM ADI</th>
+               <th>FİLM ADI</th>
                 <th>FİLM ÇIKIŞ YILI</th>
                 <th>FİLM KATEGORİSİ</th>
                 <th>FİLM PUANI</th>
             </tr>
         </thead>
         <tbody>
-
             @foreach (var film in Model)
             {
-
                 <tr>
-
                     <td>@film.FILMAD</td>
                     <td>@film.FILMYIL.Value.Date.Year</td>
                     <td>@film.KATEGORILER.KATEGORIAD</td>
                     <td>@film.FILMPUAN</td>
                 </tr>
-
             }
         </tbody>
 

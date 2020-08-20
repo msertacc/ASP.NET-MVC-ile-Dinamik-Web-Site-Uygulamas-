@@ -5,29 +5,35 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 align="center" class="bg-warning" style=" color:#000000;font:bold 20px tahoma;">KATEGORİLER</h2>
+<h2 align="center" class="bg-warning" style=" color:#000000;font:bold 20px tahoma;">@WebProje.Resources.HomeTexts.kategoriler</h2>
 <table id="ktg1" class="table table-bordered bg-warning " style="font:bold 16px tahoma;">
     <thead>
         <tr>
             <th>KATEGORİ ID</th>
             <th>KATEGORİ ADI</th>
-            <th>SİL</th>
-            <th>GÜNCELLE</th>
+            @if (User.IsInRole("True"))
+            {
+                <th>SİL</th>
+                <th>GÜNCELLE</th>
+            }
+
             <th>FİLMLER</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var veri in Model)
         {
-            <tr>
-
-                <td>@veri.KATEGORIID</td>
-                <td>@veri.KATEGORIAD</td>
+        <tr>
+            <td>@veri.KATEGORIID</td>
+            <td>@veri.KATEGORIAD</td>
+            @if (User.IsInRole("True"))
+            {
                 <td><a class="btn btn-danger" href="/Kategori/Sil/@veri.KATEGORIID">SİL</a></td>
                 <td><a class="btn btn-primary" href="/Kategori/KategoriGetir/@veri.KATEGORIID">GüNCELLE</a></td>
-                <td><a class="btn btn-dark" href="/Kategori/KategoriFilmGetir/@veri.KATEGORIID">FİLMLER</a></td>
+            }
+            <td><a class="btn btn-dark" href="/Kategori/KategoriFilmGetir/@veri.KATEGORIID">@WebProje.Resources.HomeTexts.filmler</a></td>
 
-            </tr>
+        </tr>
         }
     </tbody>
 </table>

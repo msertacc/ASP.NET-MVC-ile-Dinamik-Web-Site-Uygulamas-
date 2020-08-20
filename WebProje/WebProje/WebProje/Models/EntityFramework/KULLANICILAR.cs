@@ -12,6 +12,7 @@ namespace WebProje.Models.EntityFramework
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.Web.UI.WebControls.Expressions;
 
     public partial class KULLANICILAR
     {
@@ -20,8 +21,8 @@ namespace WebProje.Models.EntityFramework
         {
             this.YORUMLAR = new HashSet<YORUMLAR>();
         }
-    
-        
+
+
         public int KULLANICIID { get; set; }
         [Required(ErrorMessage = "Kullanýcý Adý Girilmelidir")]
         public string KULLANICIAD { get; set; }
@@ -30,8 +31,9 @@ namespace WebProje.Models.EntityFramework
         [EmailAddress(ErrorMessage = "Lütfen Geçerli e-Mail giriniz")]
         public string KULLANICIEMAIL { get; set; }
         [Required(ErrorMessage = "Þifre Girilmelidir")]
+        [Range(6,20,ErrorMessage ="Þifreniz 6 ile 20 hane aralýðýnda olmalýdýr")]
         public string KULLANICISIFRE { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<YORUMLAR> YORUMLAR { get; set; }
     }

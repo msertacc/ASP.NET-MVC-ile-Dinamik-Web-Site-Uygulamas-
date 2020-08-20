@@ -13,10 +13,10 @@ namespace WebProje.Models.EntityFramework
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class VeritabanıEntities2 : DbContext
+    public partial class VeritabanıEntitiess : DbContext
     {
-        public VeritabanıEntities2()
-            : base("name=VeritabanıEntities2")
+        public VeritabanıEntitiess()
+            : base("name=VeritabanıEntitiess")
         {
         }
     

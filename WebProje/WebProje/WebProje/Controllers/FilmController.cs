@@ -11,7 +11,7 @@ namespace WebProje.Controllers
     public class FilmController : Controller
     {
         // GET: Film
-        VeritabanıEntities2 db = new VeritabanıEntities2();
+        VeritabanıEntitiess db = new VeritabanıEntitiess();
         public ActionResult Index()
         {
             var veriler = db.FILMLER.ToList();
@@ -20,6 +20,7 @@ namespace WebProje.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "True")]
         public ActionResult Yeni()
         {
             List<SelectListItem> veriler = (from i in db.KATEGORILER.ToList()
@@ -32,7 +33,9 @@ namespace WebProje.Controllers
             return View();
         }
 
+        
         [HttpPost]
+        [Authorize(Roles = "True")]
         public ActionResult Yeni(FILMLER p1)
         {       
             var yeni = db.KATEGORILER.Where(m => m.KATEGORIID == p1.KATEGORILER.KATEGORIID).FirstOrDefault();

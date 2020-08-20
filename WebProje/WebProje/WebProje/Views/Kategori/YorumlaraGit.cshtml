@@ -1,0 +1,30 @@
+﻿@using WebProje.Models.EntityFramework
+@model List<YORUMLAR>
+@{
+    ViewBag.Title = "YorumlaraGit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <h2 align="center" class="bg-warning" style=" color:#000000;font:bold 20px tahoma;">FİLMİN YORUMLARI</h2>
+
+
+@foreach (var item in Model)
+{
+
+    <div class="card" style="font:bold 16px tahoma  ">
+        <div class="card-header">
+            @item.KULLANICILAR.KULLANICIAD adlı kullanıcı yorumladı. <div align="right">  PUANI : @item.YORUMPUAN</div>
+        </div>
+        <div class="card-body">
+            <p class="card-text">@item.KULLANICIYORUM</p>
+
+            @if (User.IsInRole("True"))
+            {
+                <a href="/Kategori/YorumSil/@item.YORUMID" class="btn btn-danger">@WebProje.Resources.HomeTexts.sil</a>
+            }
+
+        </div>
+    </div>
+    <br />
+
+}

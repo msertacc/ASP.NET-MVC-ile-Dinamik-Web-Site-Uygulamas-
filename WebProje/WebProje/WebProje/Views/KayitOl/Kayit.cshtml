@@ -39,21 +39,21 @@
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
                             @Html.TextBoxFor(m => m.KULLANICIEMAIL, new { @class = "form-control", placeholder = "e-mail" })
-                            @Html.ValidationMessageFor(m=>m.KULLANICIEMAIL)
+                            @Html.ValidationMessageFor(m => m.KULLANICIEMAIL)
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
                             @Html.TextBoxFor(m => m.KULLANICIAD, new { @class = "form-control", placeholder = "kullanici adi" })
-                            @Html.ValidationMessageFor(m=>m.KULLANICIAD)
+                            @Html.ValidationMessageFor(m => m.KULLANICIAD)
                         </div>
                         <div class="input-group mb-2">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
-                            @Html.TextBoxFor(m => m.KULLANICISIFRE, new { @class = "form-control",placeholder = "sifre" })
-                            @Html.ValidationMessageFor(m=>m.KULLANICISIFRE)
+                            @Html.TextBoxFor(m => m.KULLANICISIFRE, new { @class = "form-control", type="password",placeholder = "sifre" })
+                            @Html.ValidationMessageFor(m => m.KULLANICISIFRE)
                         </div>
 
                         <div class="d-flex justify-content-center mt-3 login_container">
@@ -75,3 +75,15 @@
     </div>
 </body>
 </html>
+
+@{
+    var message = TempData["Crash"];
+}
+
+
+
+<script type="text/javascript">
+    var message = '@message';
+    if(message)
+        alert(message);
+</script>

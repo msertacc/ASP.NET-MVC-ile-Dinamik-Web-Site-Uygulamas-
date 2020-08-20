@@ -10,8 +10,12 @@
         <label>KATEGORİ ADI</label>
         <input type="text" class="form-control" name="KATEGORIAD" />
     </div>
-    <div style="margin-top:15px">
-        <button class="btn btn-warning">KATEGORİ EKLE</button>
+    @if (User.IsInRole("True"))
+    {
+        <div style="margin-top:15px">
+            <button class="btn btn-warning"></button>
 
-    </div>
+        </div>
+    }
+
 </form>

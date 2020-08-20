@@ -74,3 +74,8 @@ D:\Users\Dell\Desktop\WebProje\WebProje\WebProje\bin\EntityFramework.dll
 D:\Users\Dell\Desktop\WebProje\WebProje\WebProje\bin\EntityFramework.SqlServer.dll
 D:\Users\Dell\Desktop\WebProje\WebProje\WebProje\bin\EntityFramework.xml
 D:\Users\Dell\Desktop\WebProje\WebProje\WebProje\bin\EntityFramework.SqlServer.xml
+D:\Users\Dell\Desktop\WebProje\WebProje\WebProje\obj\Debug\WebProje.csproj.GenerateResource.cache
+D:\Users\Dell\Desktop\WebProje\WebProje\WebProje\bin\en\WebProje.resources.dll
+D:\Users\Dell\Desktop\WebProje\WebProje\WebProje\obj\Debug\WebProje.Resources.HomeTexts.en.resources
+D:\Users\Dell\Desktop\WebProje\WebProje\WebProje\obj\Debug\en\WebProje.resources.dll
+D:\Users\Dell\Desktop\WebProje\WebProje\WebProje\obj\Debug\WebProje.Resources.HomeTexts.resources

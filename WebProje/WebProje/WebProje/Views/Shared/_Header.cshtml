@@ -1,46 +1,46 @@
 ﻿<nav class="navbar navbar-expand-lg navbar-light bg-warning ">
-    <a class="navbar-brand" href="/Home/Index" style="font: 20px tahoma; font-weight:bold;">MSY</a>
+    <a class="navbar-brand" href="/Home/Index" align="left"style="font: 20px tahoma; font-weight:bold;">MSY</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" style="margin-left:540px;font: 17px tahoma; font-weight:bold" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" style="font: 17px tahoma; font-weight:bold" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="/Home/Index">ANA SAYFA <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/Home/Index">@WebProje.Resources.HomeTexts.anasayfa <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="/Editor">EDİTÖRÜN EN İYİLERİ<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/Home/Sirala">@WebProje.Resources.HomeTexts.editörüneniyileri<span class="sr-only">(current)</span></a>
+
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="/Kategoriler">FİLMLER <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/Home/Kategoriler">@WebProje.Resources.HomeTexts.filmler<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="/Kategori/Index">KATEGORİLER <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/Kategori/Index">@WebProje.Resources.HomeTexts.kategoriler<span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="/Security/Deneme">YORUMLAR <span class="sr-only">(current)</span></a>
-            </li>
+
         </ul>
 
     </div>
-    <div class="collapse navbar-collapse" style="margin-left:300px;font: 17px tahoma; font-weight:bold" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+    <div class="collapse navbar-collapse" style="font: 17px tahoma; font-weight:bold" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto" style="margin-left:920px">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    DİL SEÇİNİZ
+                    @WebProje.Resources.HomeTexts.dilsecimi
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Türkçe</a>
-                    <a class="dropdown-item" href="#">English</a>
-
+                    <ul >
+                        <li>@Html.ActionLink("Türkçe", "Change", "Language", new { LanguageAbbravation = "tr" }, null)</li>
+                        <li>@Html.ActionLink("English", "Change", "Language", new { LanguageAbbravation = "en" }, null)</li>
+                    </ul>
                 </div>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="/Security/Logout">ÇIKIŞ YAP <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/Security/Logout">@WebProje.Resources.HomeTexts.cikis <span class="sr-only">(current)</span></a>
             </li>
 
         </ul>
     </div>
 </nav>
-<div style="font:bold 14px tahoma; background-color:#fff000"  align="right">Hoşgeldin  @Session["uyead"] - @Session["uyetip"]</div>
+<div style="font:bold 14px tahoma; background-color:#fff000"  align="right">@WebProje.Resources.HomeTexts.hosgeldin  @Session["uyead"] - @Session["uyetip"]</div>

@@ -13,7 +13,7 @@
           <Property Name="KATEGORIID" Type="int" />
           <Property Name="FILMAD" Type="varchar" MaxLength="50" />
           <Property Name="FILMYIL" Type="date" />
-          <Property Name="FILMPUAN" Type="tinyint" />
+          <Property Name="FILMPUAN" Type="float" />
           <Property Name="FILMOZET" Type="varchar" MaxLength="1000" />
           <Property Name="FILMFOTO" Type="varchar(max)" />
         </EntityType>
@@ -111,7 +111,7 @@
           <Property Name="KATEGORIID" Type="Int32" />
           <Property Name="FILMAD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="FILMYIL" Type="DateTime" Precision="0" />
-          <Property Name="FILMPUAN" Type="Byte" />
+          <Property Name="FILMPUAN" Type="Double" />
           <Property Name="FILMOZET" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
           <Property Name="FILMFOTO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="KATEGORILER" Relationship="Self.FK_FILMLER_KATEGORILER" FromRole="FILMLER" ToRole="KATEGORILER" />
@@ -184,7 +184,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="VeritabanıEntities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="VeritabanıEntitiess" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="FILMLER" EntityType="Self.FILMLER" />
           <EntitySet Name="KATEGORILER" EntityType="Self.KATEGORILER" />
           <EntitySet Name="KULLANICILAR" EntityType="Self.KULLANICILAR" />
@@ -207,7 +207,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="VeritabanıModelStoreContainer" CdmEntityContainer="VeritabanıEntities2">
+        <EntityContainerMapping StorageEntityContainer="VeritabanıModelStoreContainer" CdmEntityContainer="VeritabanıEntitiess">
           <EntitySetMapping Name="FILMLER">
             <EntityTypeMapping TypeName="VeritabanıModel.FILMLER">
               <MappingFragment StoreEntitySet="FILMLER">

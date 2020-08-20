@@ -12,7 +12,7 @@ namespace WebProje.Controllers
     public class SecurityController : Controller
     {
         // GET: Security
-        VeritabanıEntities2 db = new VeritabanıEntities2();
+        VeritabanıEntitiess db = new VeritabanıEntitiess();
         [AllowAnonymous]
         public ActionResult Login()
         {
@@ -38,9 +38,7 @@ namespace WebProje.Controllers
             }
             
         }
-        
-       
-
+     
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
