@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="12ofkeliadam" xml:space="preserve">
+    <value>12 ÖFKELİ ADAM</value>
+  </data>
+  <data name="12ofkeliadamtanitim" xml:space="preserve">
+    <value>12 Öfkeli Adam, cinayetle suçlanan bir genç ile ilgili karar vermekle yükümlü 12 jüri üyesinin karar verme sürecini konu ediyor. Latin Amerikalı bir genç adam, babasını öldürdüğü gerekçesiyle cinayetle suçlanır. Sanığın kaybettiğini söylediği bir bıçak ise cinayetin işlendiği odada bulunmuştur, gencin mahkemeye sunduğu savunma zayıftır ve olan biteni duyduklarını söyleyen pek çok tanık vardır...</value>
+  </data>
+  <data name="anasayfa" xml:space="preserve">
+    <value>ANA SAYFA</value>
+  </data>
+  <data name="ayineniyiuclusu" xml:space="preserve">
+    <value>★BU AY EN ÇOK İZLENEN 3 FİLM★</value>
+  </data>
+  <data name="cikis" xml:space="preserve">
+    <value>ÇIKIŞ YAP</value>
+  </data>
+  <data name="dilsecimi" xml:space="preserve">
+    <value>DİL SEÇİNİZ</value>
+  </data>
+  <data name="editoruneniyiuclusu" xml:space="preserve">
+    <value>★EDİTÖRÜN EN İYİ ÜÇLÜSÜ★</value>
+  </data>
+  <data name="editörüneniyileri" xml:space="preserve">
+    <value>EDİTÖRÜN EN İYİLERİ</value>
+  </data>
+  <data name="ekle" xml:space="preserve">
+    <value>EKLE</value>
+  </data>
+  <data name="eniyilersiralamasi" xml:space="preserve">
+    <value>★EN İYİLER SIRALAMASI★</value>
+  </data>
+  <data name="filmler" xml:space="preserve">
+    <value>FİLMLER</value>
+  </data>
+  <data name="guncelle" xml:space="preserve">
+    <value>GÜNCELLE</value>
+  </data>
+  <data name="hakkinda" xml:space="preserve">
+    <value>HAKKINDA</value>
+  </data>
+  <data name="haklar" xml:space="preserve">
+    <value>Tüm Hakları Saklıdır</value>
+  </data>
+  <data name="hizlilink" xml:space="preserve">
+    <value>HIZLI LİNKLER</value>
+  </data>
+  <data name="hosgeldin" xml:space="preserve">
+    <value>Hoş Geldin</value>
+  </data>
+  <data name="kategoriler" xml:space="preserve">
+    <value>KATEGORİLER</value>
+  </data>
+  <data name="kaydet" xml:space="preserve">
+    <value>KAYDET</value>
+  </data>
+  <data name="sil" xml:space="preserve">
+    <value>SİL</value>
+  </data>
+  <data name="uyanis" xml:space="preserve">
+    <value>UYANIŞ</value>
+  </data>
+  <data name="uyanistanitim" xml:space="preserve">
+    <value>Oliver Sacks’ın kendi hayatını kaleme aldığı aynı isimli romandan sinemaya uyarlanan film, ömrünü bilime adayan asosyal bir doktorun, icat ettiği bir ilaç sayesinde değiştirdiği yaşamları anlatır. Nörolog Malcolm Sayer, yeni çalışmaya başladığı bir hastanede, daha önce görmediği tarzda bir hastalığa sahip bir grup hastayla karşılaşır. Bu insanlar uzun yıllardır hareket etmeden yatağa bağlı bir şekilde uyku modundadırlar...</value>
+  </data>
+  <data name="yesilyol" xml:space="preserve">
+    <value>YEŞİL YOL</value>
+  </data>
+  <data name="yesilyoltanitim" xml:space="preserve">
+    <value>Yeşil Yol, bir hapishane görevlisi ile bir mahkumun öyküsünü anlatıyor. Paul Edgecomb'un hapishanedeki görevi, idama mahkum edilen mahkumları son yolculuklarına uğurlamaktır. Çalıştığı yıllar içerisinde yüzlerce mahkumu idam etmiştir. Bir gün John Coffey isimli korkutucu görünümlü bir adamla tanışır. Ancak Coffey'in bu ürkütücü görünümünün altında oldukça saf bir ruh yatmaktadır. Coffey, iki küçük kız çocuğunun katil davasında yargılanmaktadır...</value>
+  </data>
+  <data name="yorumgoruntule" xml:space="preserve">
+    <value>YORUMLARA GİT</value>
+  </data>
+  <data name="yorumyap" xml:space="preserve">
+    <value>YORUM YAP</value>
+  </data>
+</root>
